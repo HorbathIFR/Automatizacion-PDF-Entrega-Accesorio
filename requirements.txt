@@ -1,0 +1,6 @@
+streamlit
+pandas
+openpyxl
+weasyprint==59.0
+Pillow
+cffi==1.15.1

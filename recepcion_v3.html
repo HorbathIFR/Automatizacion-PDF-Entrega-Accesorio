@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Acta de Recepción de Equipos y Accesorios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+  <style>
+    @page {
+      margin-top: 3cm;
+      margin-bottom: 2cm;
+      margin-left: 2cm;
+      margin-right: 2cm;
+      
+      @top-center {
+        content: element(header);
+      }
+      @bottom-left {
+        font-family: 'Quicksand', sans-serif;
+        font-size: 11pt;
+        content: 'F-ITC-004';
+      }
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 11pt;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    header {
+      position: running(header);
+      padding-top: 20px;
+      margin-bottom: 20px;
+      margin-top: 0px;
+    }
+
+    .header-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .header-table td {
+      border: 1px solid black;
+      padding: 10px;
+      vertical-align: middle;
+      font-weight: bold;
+    }
+
+    .header-table td.center {
+      text-align: center;
+      font-size: 13pt;
+    }
+
+    .header-table td.right {
+      font-size: 10pt;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 10pt;
+    }
+
+    th {
+      background-color: #6b8ce8;
+      color: white;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .seccion-titulo {
+      font-weight: 700;
+      margin-top: 18px;
+      margin-bottom: 10px;
+      font-size: 11pt;
+    }
+
+    .firmas {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+      gap: 30px;
+    }
+
+    .firma {
+      width: 45%;
+      text-align: left;
+    }
+
+    .firma hr {
+      border: none;
+      border-top: 1px solid black;
+      margin: 40px 0 8px;
+    }
+
+    .campo-linea {
+      border-bottom: 1px solid black;
+      display: inline-block;
+      min-width: 400px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <table class="header-table">
+      <tr>
+        <td style="width: 25%;">
+          <img src="logo.png" alt="Horbath Technologies" style="height: 40px;">
+        </td>
+        <td class="center" style="width: 50%;">
+          RECEPCIÓN DE EQUIPOS Y ACCESORIOS
+        </td>
+        <td class="right" style="width: 25%;">
+          Versión: 003
+          <hr style="border: none; border-top: 1px solid black; width: 100%; margin: 5px 0;">
+          Fecha: 2025-09-26
+        </td>
+      </tr>
+    </table>
+  </header>
+
+  <p style="font-size: 10.5pt;"><strong>Fecha de diligenciamiento:</strong> {{fecha_actual}}</p>
+
+  <div class="seccion-titulo">1. DATOS DEL EMPLEADO QUE ENTREGA</div>
+
+  <div style="margin-left: 15px; font-size: 10.5pt;">
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 150px;">Nombre completo:</strong> 
+      <span class="campo-linea"></span>
+    </div>
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 150px;">Cargo:</strong> 
+      <span class="campo-linea"></span>
+    </div>
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 150px;">Correo corporativo:</strong> 
+      <span class="campo-linea"></span>
+    </div>
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 150px;">Proceso:</strong> 
+      <span class="campo-linea"></span>
+    </div>
+  
+    <div style="margin: 10px 0; display: flex; align-items: flex-start; font-size: 10.5pt;">
+      <strong style="margin-right: 15px; white-space: nowrap;">Motivo de entrega:</strong>
+
+      <table style="border: none; width: auto; border-collapse: collapse; margin: 0;">
+        <tr>
+          <td style="border: none; padding: 3px 15px 3px 0; vertical-align: top; width: 48%;">
+            {{check_desvinculacion}} Desvinculación
+          </td>
+          <td style="border: none; padding: 3px 0; vertical-align: top; width: 48%;">
+            {{check_renovacion}} Renovación de equipo
+          </td>
+        </tr>
+        <tr>
+          <td style="border: none; padding: 3px 15px 3px 0; vertical-align: top;">
+            {{check_falla}} Cambio por falla o daño
+          </td>
+          <td style="border: none; padding: 3px 0; vertical-align: top;">
+            {{check_otro}} Otro: <span style="border-bottom: 1px solid black; display: inline-block; width: 180px;">{{motivo_otro_texto}}</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="seccion-titulo">2. CARACTERÍSTICAS DEL EQUIPO /ACCESORIO RECIBIDO</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 13%;">N° Inventario</th>
+        <th style="width: 12%;">Dispositivo</th>
+        <th style="width: 8%;">Marca</th>
+        <th style="width: 15%;">Modelo</th>
+        <th style="width: 10%;">Serial</th>
+        <th style="width: 11%;">Memoria</th>
+        <th style="width: 19%;">Procesador</th>
+        <th style="width: 8%;"><div>Almace-</div>
+          <div>namiento</div></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{equipo_row}}
+      {{accesorios_rows}}
+    </tbody>
+  </table>
+
+  <div style="margin-top: 15px;">
+    <p><strong>Estado del equipo:</strong></p>
+    <div style="margin-left: 15px;">
+      {{check_funcional}} Funcional<br>
+      {{check_con_fallas}} Con fallas (describir): <span style="border-bottom: 1px solid black; display: inline-block; width: 350px;">{{fallas_descripcion}}</span><br>
+      {{check_danado}} Dañado o fuera de servicio.
+    </div>
+  </div>
+
+  <div style="margin-top: 15px;">
+    <p><strong>Observaciones generales del equipo:</strong></p>
+    <div style="margin-left: 15px; margin-top: 25px;">
+      <span style="border-bottom: 0.5px solid #666; display: block; width: 100%; margin-bottom: 30px;"></span>
+      <span style="border-bottom: 0.5px solid #666; display: block; width: 100%;"></span>
+    </div>
+  </div>
+
+  <p style="margin-top: 20px;">
+    Declaro haber devuelto el equipo descrito y estar de acuerdo con el contenido de este formato.
+  </p>
+
+  <div class="firmas">
+    <div class="firma">
+      <strong>Quién entrega:</strong>
+      <hr>
+      <strong>Nombre:</strong> {{nombre_quien_entrega}}<br>
+      <strong>CC:</strong>
+    </div>
+    <div class="firma">
+      <strong>Quién recibe:</strong>
+      <hr>
+      <strong>Nombre:</strong> {{nombre_quien_recibe}}<br>
+      <strong>CC:</strong>
+    </div>
+  </div>
+
+</body>
+</html>
