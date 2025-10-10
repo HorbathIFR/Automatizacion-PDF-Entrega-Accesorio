@@ -1,4 +1,4 @@
 streamlit
 pandas
 openpyxl
-weasyprint
+weasyprint==66.0
