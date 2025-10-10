@@ -3,4 +3,3 @@ pandas
 openpyxl
 weasyprint==58.1
 Pillow
-cairocffi==1.6.1
