@@ -268,7 +268,8 @@ if seccion == "📥 Recepción de equipos":
 
             html_template = cargar_html("recepcion_v3.html")
             html_lleno = llenar_html(html_template, datos_pdf)
-            pdf_bytes = HTML(string=html_lleno).write_pdf()
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            pdf_bytes = HTML(string=html_lleno, base_url=base_dir).write_pdf()
 
             st.success("✅ PDF generado exitosamente.")
             st.download_button(
@@ -510,7 +511,8 @@ elif seccion == "📤 Entrega de equipos":
 
             html_template = cargar_html("entrega_v3.html")
             html_lleno = llenar_html(html_template, datos_pdf)
-            pdf_bytes = HTML(string=html_lleno).write_pdf()
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            pdf_bytes = HTML(string=html_lleno, base_url=base_dir).write_pdf()
 
             st.success("✅ PDF generado exitosamente.")
             st.download_button(
