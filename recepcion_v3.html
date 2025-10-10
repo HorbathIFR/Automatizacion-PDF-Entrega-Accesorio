@@ -9,11 +9,13 @@
 
   <style>
     @page {
-      margin-top: 1.5cm;
+      margin-top: 3cm;
       margin-bottom: 2cm;
       margin-left: 2cm;
       margin-right: 2cm;
       
+      @top-center {
+        content: element(header);
       }
       @bottom-left {
         font-family: 'Quicksand', sans-serif;
@@ -30,6 +32,7 @@
     }
 
     header {
+      position: running(header);
       padding-top: 20px;
       margin-bottom: 20px;
       margin-top: 0px;
@@ -147,14 +150,13 @@
       <strong style="display: inline-block; width: 150px;">Correo corporativo:</strong> 
       <span class="campo-linea"></span>
     </div>
-     <div style="margin: 10px 0;">
+    <div style="margin: 10px 0;">
       <strong style="display: inline-block; width: 150px;">Proceso:</strong> 
       <span class="campo-linea"></span>
     </div>
-  </div>
-
-  <div style="margin: 10px 0 10px 15px; display: flex; align-items: flex-start; font-size: 10.5pt;">
-    <strong style="margin-right: 15px; white-space: nowrap;">Motivo de entrega:</strong>
+  
+    <div style="margin: 10px 0; display: flex; align-items: flex-start; font-size: 10.5pt;">
+      <strong style="margin-right: 15px; white-space: nowrap;">Motivo de entrega:</strong>
 
       <table style="border: none; width: auto; border-collapse: collapse; margin: 0;">
         <tr>
