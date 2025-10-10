@@ -2,15 +2,11 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 from weasyprint import HTML
-import os
 
 # =================== FUNCIONES COMUNES ===================
 
 def cargar_html(path):
-    """Carga archivo HTML usando ruta absoluta"""
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    full_path = os.path.join(base_dir, path)
-    with open(full_path, "r", encoding="utf-8") as f:
+    with open(path, "r", encoding="utf-8") as f:
         return f.read()
 
 def llenar_html(template, datos):
@@ -268,8 +264,7 @@ if seccion == "📥 Recepción de equipos":
 
             html_template = cargar_html("recepcion_v3.html")
             html_lleno = llenar_html(html_template, datos_pdf)
-            base_dir = os.path.dirname(os.path.abspath(__file__))
-            pdf_bytes = HTML(string=html_lleno, base_url=base_dir).write_pdf()
+            pdf_bytes = HTML(string=html_lleno, base_url=".").write_pdf()
 
             st.success("✅ PDF generado exitosamente.")
             st.download_button(
@@ -511,8 +506,7 @@ elif seccion == "📤 Entrega de equipos":
 
             html_template = cargar_html("entrega_v3.html")
             html_lleno = llenar_html(html_template, datos_pdf)
-            base_dir = os.path.dirname(os.path.abspath(__file__))
-            pdf_bytes = HTML(string=html_lleno, base_url=base_dir).write_pdf()
+            pdf_bytes = HTML(string=html_lleno, base_url=".").write_pdf()
 
             st.success("✅ PDF generado exitosamente.")
             st.download_button(
