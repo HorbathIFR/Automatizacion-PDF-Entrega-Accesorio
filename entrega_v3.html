@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Acta de Entrega de Equipos y Accesorios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+  <style>
+    @page {
+  margin-top: 3cm;
+  margin-bottom: 2cm;
+  margin-left: 2cm;
+  margin-right: 2cm;
+  
+  @top-center {
+    content: element(header);
+  }
+  @bottom-left {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 11pt;
+    content: 'F-ITC-002';
+  }
+}
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 11pt;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    header {
+    position: running(header);
+    padding-top: 20px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+  }
+
+    .header-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .header-table td {
+      border: 1px solid black;
+      padding: 10px;
+      vertical-align: middle;
+      font-weight: bold;
+    }
+
+    .header-table td.center {
+      text-align: center;
+      font-size: 13pt;
+    }
+
+    .header-table td.right {
+      font-size: 10pt;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 10pt;
+    }
+
+    .seccion-titulo {
+      font-weight: 700;
+      margin-top: 18px;
+      margin-bottom: 10px;
+      font-size: 11pt;
+    }
+
+    .texto-legal {
+      text-align: justify;
+      margin-top: 15px;
+      line-height: 1.5;
+      font-size: 10.5pt;
+    }
+
+    .firmas {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+      gap: 30px;
+    }
+
+    .firma {
+      width: 45%;
+      text-align: left;
+    }
+
+    .firma hr {
+      border: none;
+      border-top: 1px solid black;
+      margin: 40px 0 8px;
+    }
+
+    .firma-datos {
+      font-size: 9pt;
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <table class="header-table">
+      <tr>
+        <td style="width: 25%;">
+          <img src="logo.png" alt="Horbath Technologies" style="height: 40px;">
+        </td>
+        <td class="center" style="width: 50%;">
+          ENTREGA DE EQUIPOS Y ACCESORIOS
+        </td>
+        <td class="right" style="width: 25%;">
+          Versión: 003
+          <hr style="border: none; border-top: 1px solid black; width: 100%; margin: 5px 0;">
+          Fecha: 2025-09-26
+        </td>
+      </tr>
+    </table>
+  </header>
+
+  <p style="font-size: 10.5pt;"><strong>Fecha de diligenciamiento:</strong> {{fecha_actual}}</p>
+
+  <div class="seccion-titulo">1. DATOS DEL EMPLEADO QUE RECIBE</div>
+
+  <div style="margin-left: 15px; font-size: 10.5pt;">
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 150px;">Nombre completo:</strong> 
+      <span style="border-bottom: 1px solid black; display: inline-block; width: 425px;"></span>
+    </div>
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 150px;">Cargo:</strong> 
+      <span style="border-bottom: 1px solid black; display: inline-block; width: 425px;"></span>
+    </div>
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 150px;">Correo corporativo:</strong> 
+      <span style="border-bottom: 1px solid black; display: inline-block; width: 425px;"></span>
+    </div>
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 150px;">Proceso:</strong> 
+      <span style="border-bottom: 1px solid black; display: inline-block; width: 425px;"></span>
+    </div>
+  
+  <div style="margin: 6px 0 5px 0; display: flex; align-items: flex-start; font-size: 10.5pt;">
+  <strong style="margin-right: 15px; white-space: nowrap;">Motivo de entrega:</strong>
+
+  <table style="border: none; width: auto; border-collapse: collapse; margin: 0;">
+    <tr>
+      <td style="border: none; padding: 3px 15px 3px 0; vertical-align: top; width: 48%;">
+        {{check_vinculacion}} Nueva vinculación
+      </td>
+      <td style="border: none; padding: 3px 0; vertical-align: top; width: 48%;">
+        {{check_renovacion}} Renovación de equipo
+      </td>
+    </tr>
+    <tr>
+      <td style="border: none; padding: 3px 15px 3px 0; vertical-align: top;">
+        {{check_falla}} Cambio por falla o daño
+      </td>
+      <td style="border: none; padding: 3px 0; vertical-align: top;">
+        {{check_otro}} Otro:
+        <span style="border-bottom: 1px solid black; display: inline-block; width: 180px; margin-left: 5px;">{{motivo_otro_texto}}</span>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+
+
+  <div class="seccion-titulo">2. CARACTERÍSTICAS DEL EQUIPO / ACCESORIO ENTREGADO:</div>
+
+  <div style="font-weight: 700; margin-top: 12px; margin-bottom: 8px; margin-left: 0; font-size: 10.5pt;">2.1 Equipo entregado</div>
+
+  <div style="margin-left: 15px; font-size: 10.5pt;">
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 130px;">Tipo de equipo:</strong> 
+      <span style="border-bottom: 1px solid black; display: inline-block; width: 445px; font-weight: 700;">{{tipo_equipo}}</span>
+    </div>
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 130px;">Marca y modelo:</strong> 
+      <span style="border-bottom: 1px solid black; display: inline-block; width: 445px; font-weight: 700;">{{marca_modelo}}</span>
+    </div>
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 130px;">Serial:</strong> 
+      <span style="border-bottom: 1px solid black; display: inline-block; width: 445px; font-weight: 700;">{{serial}}</span>
+    </div>
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 130px;">Procesador:</strong> 
+      <span style="border-bottom: 1px solid black; display: inline-block; width: 445px; font-weight: 700;">{{procesador}}</span>
+    </div>
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 130px;">Memoria:</strong> 
+      <span style="border-bottom: 1px solid black; display: inline-block; width: 145px; font-weight: 700;">{{memoria}}</span>
+      <strong style="display: inline-block; width: 150px; margin-left: 10px;">Almacenamiento:</strong> 
+      <span style="border-bottom: 1px solid black; display: inline-block; width: 145px; font-weight: 700;">{{almacenamiento}}</span>
+    </div>
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 130px;">N° de inventario:</strong> 
+      <span style="border-bottom: 1px solid black; display: inline-block; width: 445px; font-weight: 700;">{{inventario}}</span>
+    </div>
+  </div>
+
+  <style>
+  th, td {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: left;
+    vertical-align: top;
+    font-size: 10pt;
+  }
+  
+  th {
+    background-color: #a5bafd;
+    font-weight: 600;
+  }
+</style>
+
+<div style="font-weight: 700; margin-top: 12px; margin-bottom: 8px; margin-left: 0; font-size: 10.5pt;">2.2 Accesorios entregados:</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo de accesorio</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Serial</th>
+      <th>N° Inventario</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{accesorios_rows}}
+  </tbody>
+</table>
+
+  <div class="texto-legal">
+    <p>El equipo y los accesorios antes relacionados pertenecen a HORBATH TECHNOLOGIES SAS, por lo que este le fue asignado para uso única y exclusivamente laboral, debiendo el usuario abstenerse de instalar o permitir que terceros ajenos al grupo interno de trabajo instale software no autorizado por el empleador.</p>
+
+    <p>Al momento de realizada esta entrega, el equipo se encuentra en buen estado físico y de funcionamiento. El usuario se compromete a devolver el equipo en las mismas condiciones y con los mismos accesorios entregados en el momento que sea solicitado por el empleador.</p>
+
+    <p>El usuario que recibe el (los) elementos aquí relacionados se hace responsable por su buen uso manejo y custodia; Por lo tanto, al recibir el equipo detallado en esta acta, asume plena responsabilidad por su uso en el lugar autorizado por HORBATH TECHNOLOGIES SAS para prestar los servicios y/o registrado en la base de datos del área de gestión humana de la compañía para quien sea autorizado en trabajo remoto.</p>
+
+    <p>El usuario no está autorizado para viajar con el equipo sin previa autorización del empleador; en caso de pérdida bajo esta circunstancia, desde ya el usuario autoriza a descontar de sus Honorarios y/o salario el valor de la reposición del equipo.</p>
+
+    <p>Los daños causados que no provengan del deterioro natural del uso legítimo, negligencia del usuario o de otra causa injustificada deberán ser asumidos por el usuario y desde ya autoriza el descuento de los mismos de su salario y/o honorarios.</p>
+
+    <p>Asimismo, el usuario se compromete a notificar de manera inmediata a la compañía cualquier incidente que afecte la integridad del equipo. En caso de hurto el usuario deberá presentar de manera inmediata la denuncia correspondiente y notificar al empleador.</p>
+
+    <p>Yo, <span style="border-bottom: 1px solid black; display: inline-block; width: 280px;"></span>, identificado (a) con CC N° <span style="border-bottom: 1px solid black; display: inline-block; width: 180px;"></span>, autorizo a HORBATH TECHNOLOGIES SAS, a descontar de mis Honorarios, salario y/o liquidación de prestaciones, el valor correspondiente, ya sea por daño técnicamente comprobable debido al mal uso o negligencia, extravío o no devolución del equipo.</p>
+
+    <p>Declaro que mi dirección de residencia es <span style="border-bottom: 1px solid black; display: inline-block; width: 380px;"></span></p>
+  </div>
+
+  <div class="firmas">
+    <div class="firma">
+      <strong>Quién recibe:</strong>
+      <hr>
+      <strong>Nombre:</strong> {{nombre_quien_recibe}}<br>
+      <strong>CC:</strong>
+    </div>
+    <div class="firma">
+      <strong>Quién entrega:</strong>
+      <hr>
+      <strong>Nombre:</strong> {{nombre_quien_entrega}}<br>
+      <div class="firma-datos">
+        <strong>Cargo:</strong><br>
+        Calle 77 B # 57 – 103, Edificio Green Towers<br>
+        Barranquilla - Colombia<br>
+        Tel: (605) 351 73 30 – (605) 327 73 71
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
