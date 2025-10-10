@@ -1,5 +1,5 @@
 streamlit
 pandas
 openpyxl
-weasyprint==57.1
+weasyprint==56.1
 Pillow
