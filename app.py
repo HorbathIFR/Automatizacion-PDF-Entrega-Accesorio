@@ -205,14 +205,14 @@ if seccion == "📥 Recepción de equipos":
             if equipo_data:
                 equipo_row = f"""
                 <tr>
-                    <td style="width: 13%;"><strong>{equipo_data['n_inventario']}</strong></td>
-                    <td style="width: 12%;"><strong>{equipo_data['dispositivo']}</strong></td>
-                    <td style="width: 8%;"><strong>{equipo_data['marca']}</strong></td>
-                    <td style="width: 15%;"><strong>{equipo_data['modelo']}</strong></td>
-                    <td style="width: 14%;"><strong>{equipo_data['serial']}</strong></td>
-                    <td style="width: 11%;"><strong>{equipo_data['memoria']}</strong></td>
-                    <td style="width: 19%;"><strong>{equipo_data['procesador']}</strong></td>
-                    <td style="width: 8%;"><strong>{equipo_data['almacenamiento']}</strong></td>
+                    <td style="width: 13%;">{equipo_data['n_inventario']}</strong></td>
+                    <td style="width: 12%;">{equipo_data['dispositivo']}</strong></td>
+                    <td style="width: 8%;">{equipo_data['marca']}</strong></td>
+                    <td style="width: 15%;">{equipo_data['modelo']}</strong></td>
+                    <td style="width: 14%;">{equipo_data['serial']}</strong></td>
+                    <td style="width: 11%;">{equipo_data['memoria']}</strong></td>
+                    <td style="width: 19%;">{equipo_data['procesador']}</strong></td>
+                    <td style="width: 8%;">{equipo_data['almacenamiento']}</strong></td>
                 </tr>
                 """
 
@@ -222,14 +222,14 @@ if seccion == "📥 Recepción de equipos":
                 for acc in accesorios_data:
                     accesorios_html += f"""
                     <tr>
-                        <td style="width: 13%;"><strong>{acc['n_inventario']}</strong></td>
-                        <td style="width: 12%;"><strong>{acc['tipo']}</strong></td>
-                        <td style="width: 8%;"><strong>{acc['marca']}</strong></td>
-                        <td style="width: 15%;"><strong>{acc['modelo']}</strong></td>
-                        <td style="width: 14%;"><strong>{acc['serial']}</strong></td>
-                        <td style="width: 11%;"><strong>N/A</strong></td>
-                        <td style="width: 19%;"><strong>N/A</strong></td>
-                        <td style="width: 8%;"><strong>N/A</strong></td>
+                        <td style="width: 13%;">{acc['n_inventario']}</strong></td>
+                        <td style="width: 12%;">{acc['tipo']}</strong></td>
+                        <td style="width: 8%;">{acc['marca']}</strong></td>
+                        <td style="width: 15%;">{acc['modelo']}</strong></td>
+                        <td style="width: 14%;">{acc['serial']}</strong></td>
+                        <td style="width: 11%;">N/A</strong></td>
+                        <td style="width: 19%;">N/A</strong></td>
+                        <td style="width: 8%;">N/A</strong></td>
                     </tr>
                     """
             
