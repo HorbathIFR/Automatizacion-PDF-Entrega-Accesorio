@@ -1,5 +1,6 @@
 streamlit
 pandas
 openpyxl
-weasyprint==54.3
+weasyprint==60.2
 Pillow
+cairocffi==1.6.1
