@@ -137,6 +137,7 @@ if seccion == "📥 Recepción de equipos":
     
     with col2:
         nombre_quien_recibe = st.text_input("Nombre de quien RECIBE", value="Jonathan David Santos Arrieta")
+        cargo_quien_recibe = st.text_input("Cargo de quien RECIBE", key="cargo_recibe_recepcion")
 
     # GENERAR PDF
     if st.button("📥 Generar PDF de Recepción"):
@@ -205,14 +206,14 @@ if seccion == "📥 Recepción de equipos":
             if equipo_data:
                 equipo_row = f"""
                 <tr>
-                    <td style="width: 13%;">{equipo_data['n_inventario']}</strong></td>
-                    <td style="width: 12%;">{equipo_data['dispositivo']}</strong></td>
-                    <td style="width: 8%;">{equipo_data['marca']}</strong></td>
-                    <td style="width: 15%;">{equipo_data['modelo']}</strong></td>
-                    <td style="width: 14%;">{equipo_data['serial']}</strong></td>
-                    <td style="width: 11%;">{equipo_data['memoria']}</strong></td>
-                    <td style="width: 19%;">{equipo_data['procesador']}</strong></td>
-                    <td style="width: 8%;">{equipo_data['almacenamiento']}</strong></td>
+                    <td style="width: 13%;">{equipo_data['n_inventario']}</td>
+                    <td style="width: 12%;">{equipo_data['dispositivo']}</td>
+                    <td style="width: 8%;">{equipo_data['marca']}</td>
+                    <td style="width: 15%;">{equipo_data['modelo']}</td>
+                    <td style="width: 14%;">{equipo_data['serial']}</td>
+                    <td style="width: 11%;">{equipo_data['memoria']}</td>
+                    <td style="width: 19%;">{equipo_data['procesador']}</td>
+                    <td style="width: 8%;">{equipo_data['almacenamiento']}</td>
                 </tr>
                 """
 
@@ -222,14 +223,14 @@ if seccion == "📥 Recepción de equipos":
                 for acc in accesorios_data:
                     accesorios_html += f"""
                     <tr>
-                        <td style="width: 13%;">{acc['n_inventario']}</strong></td>
-                        <td style="width: 12%;">{acc['tipo']}</strong></td>
-                        <td style="width: 8%;">{acc['marca']}</strong></td>
-                        <td style="width: 15%;">{acc['modelo']}</strong></td>
-                        <td style="width: 14%;">{acc['serial']}</strong></td>
-                        <td style="width: 11%;">N/A</strong></td>
-                        <td style="width: 19%;">N/A</strong></td>
-                        <td style="width: 8%;">N/A</strong></td>
+                        <td style="width: 13%;">{acc['n_inventario']}</td>
+                        <td style="width: 12%;">{acc['tipo']}</td>
+                        <td style="width: 8%;">{acc['marca']}</td>
+                        <td style="width: 15%;">{acc['modelo']}</td>
+                        <td style="width: 14%;">{acc['serial']}</td>
+                        <td style="width: 11%;">N/A</td>
+                        <td style="width: 19%;">N/A</td>
+                        <td style="width: 8%;">N/A</td>
                     </tr>
                     """
             
@@ -251,6 +252,7 @@ if seccion == "📥 Recepción de equipos":
                 "accesorios_rows": accesorios_html,
                 "nombre_quien_entrega": nombre_quien_entrega,
                 "nombre_quien_recibe": nombre_quien_recibe,
+                "cargo_quien_recibe": cargo_quien_recibe,
                 "check_desvinculacion": check_desvinculacion,
                 "check_renovacion": check_renovacion_recep,
                 "check_falla": check_falla_recep,
@@ -381,6 +383,7 @@ elif seccion == "📤 Entrega de equipos":
     
     with col2:
         nombre_quien_entrega = st.text_input("Nombre de quien ENTREGA", value="Jonathan David Santos Arrieta")
+        cargo_quien_entrega = st.text_input("Cargo de quien ENTREGA", value="Coordinador de Infraestructura TI", key="cargo_entrega_entrega")
 
     # GENERAR PDF
     if st.button("📤 Generar PDF de Entrega"):
@@ -462,11 +465,11 @@ elif seccion == "📤 Entrega de equipos":
                 for acc in accesorios_data:
                     accesorios_html += f"""
                     <tr>
-                        <td><strong>{acc['tipo']}</strong></td>
-                        <td><strong>{acc['marca']}</strong></td>
-                        <td><strong>{acc['modelo']}</strong></td>
-                        <td><strong>{acc['serial']}</strong></td>
-                        <td><strong>{acc['n_inventario']}</strong></td>
+                        <td>{acc['tipo']}</td>
+                        <td>{acc['marca']}</td>
+                        <td>{acc['modelo']}</td>
+                        <td>{acc['serial']}</td>
+                        <td>{acc['n_inventario']}</td>
                     </tr>
                     """
             else:
@@ -484,6 +487,7 @@ elif seccion == "📤 Entrega de equipos":
                 "accesorios_rows": accesorios_html,
                 "nombre_quien_recibe": nombre_quien_recibe,
                 "nombre_quien_entrega": nombre_quien_entrega,
+                "cargo_quien_entrega": cargo_quien_entrega,
                 "check_vinculacion": check_vinculacion,
                 "check_renovacion": check_renovacion,
                 "check_falla": check_falla,
