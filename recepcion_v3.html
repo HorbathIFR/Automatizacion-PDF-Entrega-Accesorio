@@ -72,6 +72,28 @@
       text-align: left;
       vertical-align: top;
       font-size: 10pt;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+        /* Control específico para celdas de datos */
+    tbody td {
+      max-width: 150px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal; /* Permite saltos de línea si es necesario */
+    }
+    
+    /* Ajuste para columnas específicas que suelen ser largas */
+    tbody td:nth-child(4), /* Modelo */
+    tbody td:nth-child(5) { /* Serial */
+      max-width: 100px;
+      font-size: 9pt; /* Reduce un poco el tamaño de fuente */
+    }
+    
+    tbody td:nth-child(7) { /* Procesador */
+      max-width: 120px;
+      font-size: 9pt;
     }
 
     th {
