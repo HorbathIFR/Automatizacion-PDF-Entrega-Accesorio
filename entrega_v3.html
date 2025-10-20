@@ -66,35 +66,33 @@
       margin-bottom: 15px;
     }
 
-    th, td {
+        th, td {
       border: 1px solid black;
       padding: 5px;
       text-align: left;
       vertical-align: top;
       font-size: 10pt;
     }
-
-      th {
-        background-color: #a5bafd;
-        font-weight: 600;
-      }
-      
-      /* Solo aplicar word-break a las celdas del body */
-      tbody td {
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        max-width: 100px;
-      }
-      
-      /* Columnas específicas (Modelo y Serial) */
-      tbody td:nth-child(3), /* Modelo */
-      tbody td:nth-child(4) { /* Serial */
-        max-width: 70px;
-        font-size: 9pt;
-        line-height: 1.3;
-        padding: 5px;
-        word-break: break-word;
-      }
+    
+    th {
+      background-color: #a5bafd;
+      font-weight: 600;
+    }
+    
+    /* Aplicar word-break solo a celdas del body */
+    tbody td {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      /* ✅ QUITAR max-width general */
+    }
+    
+    /* Solo columnas específicas */
+    tbody td:nth-child(3), /* Modelo */
+    tbody td:nth-child(4) { /* Serial */
+      max-width: 100px; /* ✅ Aumentado para más flexibilidad */
+      font-size: 9pt;
+      line-height: 1.4;
+    }
 
     .seccion-titulo {
       font-weight: 700;
