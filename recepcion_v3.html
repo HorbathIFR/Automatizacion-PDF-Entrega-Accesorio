@@ -67,34 +67,32 @@
     }
 
     th, td {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: left;
-  vertical-align: top;
-  font-size: 10pt;
-}
-
-    /* Solo aplicar word-break a las celdas del body, NO a los headers */
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 10pt;
+    }
+    
+    /* Aplicar word-break solo a celdas del body */
     tbody td {
       word-wrap: break-word;
       overflow-wrap: break-word;
-      max-width: 100px;
+      /* ✅ QUITAR max-width general */
     }
     
-    /* Columnas específicas más estrechas */
+    /* Solo aplicar restricciones a columnas problemáticas CUANDO tengan contenido largo */
     tbody td:nth-child(4), /* Modelo */
     tbody td:nth-child(5) { /* Serial */
-      max-width: 70px;
+      max-width: 100px; /* ✅ Aumentado de 70px a 100px para más flexibilidad */
       font-size: 9pt;
-      line-height: 1.3;
-      padding: 6px;
-      word-break: break-word; /* Rompe solo cuando sea necesario */
+      line-height: 1.4;
     }
     
     tbody td:nth-child(7) { /* Procesador */
-      max-width: 90px;
+      max-width: 120px;
       font-size: 9pt;
-      line-height: 1.3;
+      line-height: 1.4;
     }
 
     th {
