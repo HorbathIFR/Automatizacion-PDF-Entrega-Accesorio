@@ -21,6 +21,14 @@ def limpiar_valor(valor):
         return "N/A"
     return str(valor).strip()
 
+# ✅ Función para truncar texto largo
+def truncar_texto(texto, max_chars=20):
+    """Trunca texto largo agregando '...' si excede el límite"""
+    texto_limpio = limpiar_valor(texto)
+    if len(texto_limpio) > max_chars:
+        return texto_limpio[:max_chars] + "..."
+    return texto_limpio
+    
 # =================== SIDEBAR ===================
 
 st.sidebar.title("📋 Formularios")
@@ -173,10 +181,10 @@ if seccion == "📥 Recepción de equipos":
                     "n_inventario": limpiar_valor(row["Título"]),
                     "dispositivo": limpiar_valor(row.get("Tipo de activo")),
                     "marca": limpiar_valor(row.get("Fabricante")),
-                    "modelo": limpiar_valor(row.get("Modelo")),
-                    "serial": limpiar_valor(row.get("Número de serie")),
+                    "modelo": truncar_texto(row.get("Modelo"), 15),
+                    "serial": truncar_texto(row.get("Número de serie"), 18),
                     "memoria": limpiar_valor(row.get("RAM")),
-                    "procesador": limpiar_valor(row.get("Modelo de procesador")),
+                    "procesador": truncar_texto(row.get("Modelo de procesador"), 20),
                     "almacenamiento": limpiar_valor(row.get("Capacidad"))
                 }
 
@@ -196,8 +204,8 @@ if seccion == "📥 Recepción de equipos":
                             accesorios_data.append({
                                 "tipo": limpiar_valor(row.get("Tipo de activo")),
                                 "marca": limpiar_valor(row.get("Fabricante")),
-                                "modelo": limpiar_valor(row.get("Modelo")),
-                                "serial": limpiar_valor(row.get("Número de serie")),
+                                "modelo": truncar_texto(row.get("Modelo"), 15),
+                                "serial": truncar_texto(row.get("Número de serie"), 18),
                                 "n_inventario": limpiar_valor(row.get("Título"))
                             })
 
@@ -430,9 +438,9 @@ elif seccion == "📤 Entrega de equipos":
                 
                 equipo_data = {
                     "tipo_equipo": limpiar_valor(row.get("Tipo de activo")),
-                    "marca_modelo": marca_modelo,
-                    "serial": limpiar_valor(row.get("Número de serie")),
-                    "procesador": limpiar_valor(row.get("Modelo de procesador")),
+                    "marca_modelo": truncar_texto(marca_modelo, 25),
+                    "serial": truncar_texto(row.get("Número de serie"), 18),
+                    "procesador": truncar_texto(row.get("Modelo de procesador"), 20),
                     "memoria": limpiar_valor(row.get("RAM")),
                     "almacenamiento": limpiar_valor(row.get("Capacidad")),
                     "inventario": limpiar_valor(row["Título"])
@@ -454,8 +462,8 @@ elif seccion == "📤 Entrega de equipos":
                             accesorios_data.append({
                                 "tipo": limpiar_valor(row.get("Tipo de activo")),
                                 "marca": limpiar_valor(row.get("Fabricante")),
-                                "modelo": limpiar_valor(row.get("Modelo")),
-                                "serial": limpiar_valor(row.get("Número de serie")),
+                                "modelo": truncar_texto(row.get("Modelo"), 15),
+                                "serial": truncar_texto(row.get("Número de serie"), 18),
                                 "n_inventario": limpiar_valor(row.get("Título"))
                             })
 
