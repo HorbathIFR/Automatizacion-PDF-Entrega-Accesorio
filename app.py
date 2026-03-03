@@ -5,7 +5,7 @@ from weasyprint import HTML
 import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
+st.caption("DEPLOY CHECK: 2026-03-03  (commit test)")
 # =================== FUNCIONES COMUNES ===================
 
 def cargar_html(path):
