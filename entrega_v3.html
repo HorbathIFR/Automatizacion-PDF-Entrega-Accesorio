@@ -185,23 +185,56 @@
   <table style="border: none; width: auto; border-collapse: collapse; margin: 0;">
     <tr>
       <td style="border: none; padding: 3px 15px 3px 0; vertical-align: top; width: 48%;">
-        {{check_vinculacion}} Nueva vinculación
+        <span class="check">{{check_vinculacion}}</span> Nueva vinculación
       </td>
       <td style="border: none; padding: 3px 0; vertical-align: top; width: 48%;">
-        {{check_renovacion}} Renovación de equipo
+        <span class="check">{{check_renovacion}}</span> Renovación de equipo
       </td>
     </tr>
     <tr>
       <td style="border: none; padding: 3px 15px 3px 0; vertical-align: top;">
-        {{check_falla}} Cambio por falla o daño
+        <span class="check">{{check_falla}}</span> Cambio por falla o daño
       </td>
       <td style="border: none; padding: 3px 0; vertical-align: top;">
-        {{check_otro}} Otro:
+        <span class="check">{{check_otro}}</span> Otro:
         <span style="border-bottom: 1px solid black; display: inline-block; width: 180px; margin-left: 5px;">{{motivo_otro_texto}}</span>
       </td>
     </tr>
   </table>
 </div>
+
+  <div class="seccion-titulo">2. CARACTERÍSTICAS DEL EQUIPO / ACCESORIO ENTREGADO:</div>
+
+  <div style="font-weight: 700; margin-top: 12px; margin-bottom: 8px; margin-left: 0; font-size: 10.5pt;">2.1 Equipo entregado</div>
+
+  <div style="margin-left: 15px; font-size: 10.5pt;">
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 130px;">Tipo de equipo:</strong> 
+      <span style="border-bottom: 1px solid black; display: inline-block; width: 445px; font-weight: 700;">{{tipo_equipo}}</span>
+    </div>
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 130px;">Marca y modelo:</strong> 
+      <span style="border-bottom: 1px solid black; display: inline-block; width: 445px; font-weight: 700;">{{marca_modelo}}</span>
+    </div>
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 130px;">Serial:</strong> 
+      <span style="border-bottom: 1px solid black; display: inline-block; width: 445px; font-weight: 700;">{{serial}}</span>
+    </div>
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 130px;">Procesador:</strong> 
+      <span style="border-bottom: 1px solid black; display: inline-block; width: 445px; font-weight: 700;">{{procesador}}</span>
+    </div>
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 130px;">Memoria:</strong> 
+      <span style="border-bottom: 1px solid black; display: inline-block; width: 145px; font-weight: 700;">{{memoria}}</span>
+      <strong style="display: inline-block; width: 150px; margin-left: 10px;">Almacenamiento:</strong> 
+      <span style="border-bottom: 1px solid black; display: inline-block; width: 145px; font-weight: 700;">{{almacenamiento}}</span>
+    </div>
+    <div style="margin: 10px 0;">
+      <strong style="display: inline-block; width: 130px;">N° de inventario:</strong> 
+      <span style="border-bottom: 1px solid black; display: inline-block; width: 445px; font-weight: 700;">{{inventario}}</span>
+    </div>
+  </div>
 
 
 
