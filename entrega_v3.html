@@ -32,7 +32,27 @@
     }
 
     .check {
-      font-family: 'DejaVu Sans', 'Segoe UI Symbol', Arial, sans-serif;
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border: 1.5px solid #333;
+      vertical-align: middle;
+      margin-right: 3px;
+      position: relative;
+      background: white;
+    }
+    .check.checked::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 2px;
+      top: 0px;
+      width: 5px;
+      height: 9px;
+      border: 2px solid #333;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
     }
       
     header {
@@ -185,18 +205,18 @@
   <table style="border: none; width: auto; border-collapse: collapse; margin: 0;">
     <tr>
       <td style="border: none; padding: 3px 15px 3px 0; vertical-align: top; width: 48%;">
-        <span class="check">{{check_vinculacion}}</span> Nueva vinculación
+        <span class="check {{check_vinculacion}}"></span> Nueva vinculación
       </td>
       <td style="border: none; padding: 3px 0; vertical-align: top; width: 48%;">
-        <span class="check">{{check_renovacion}}</span> Renovación de equipo
+        <span class="check {{check_renovacion}}"></span> Renovación de equipo
       </td>
     </tr>
     <tr>
       <td style="border: none; padding: 3px 15px 3px 0; vertical-align: top;">
-        <span class="check">{{check_falla}}</span> Cambio por falla o daño
+        <span class="check {{check_falla}}"></span> Cambio por falla o daño
       </td>
       <td style="border: none; padding: 3px 0; vertical-align: top;">
-        <span class="check">{{check_otro}}</span> Otro:
+        <span class="check {{check_otro}}"></span> Otro:
         <span style="border-bottom: 1px solid black; display: inline-block; width: 180px; margin-left: 5px;">{{motivo_otro_texto}}</span>
       </td>
     </tr>
