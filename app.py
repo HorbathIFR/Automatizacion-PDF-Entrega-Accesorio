@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 from weasyprint import HTML
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # =================== FUNCIONES COMUNES ===================
 
@@ -272,9 +275,9 @@ if seccion == "📥 Recepción de equipos":
                 "fallas_descripcion": estado_fallas_descripcion
             }
 
-            html_template = cargar_html("recepcion_v3.html")
+            html_template = cargar_html(os.path.join(BASE_DIR, "recepcion_v3.html"))
             html_lleno = llenar_html(html_template, datos_pdf)
-            pdf_bytes = HTML(string=html_lleno, base_url=".").write_pdf()
+            pdf_bytes = HTML(string=html_lleno, base_url=BASE_DIR).write_pdf()
 
             st.success("✅ PDF generado exitosamente.")
             st.download_button(
@@ -516,9 +519,9 @@ elif seccion == "📤 Entrega de equipos":
                     "inventario": "N/A"
                 })
 
-            html_template = cargar_html("entrega_v3.html")
+            html_template = cargar_html(os.path.join(BASE_DIR, "entrega_v3.html"))
             html_lleno = llenar_html(html_template, datos_pdf)
-            pdf_bytes = HTML(string=html_lleno, base_url=".").write_pdf()
+            pdf_bytes = HTML(string=html_lleno, base_url=BASE_DIR).write_pdf()
 
             st.success("✅ PDF generado exitosamente.")
             st.download_button(
