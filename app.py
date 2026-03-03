@@ -246,15 +246,15 @@ if seccion == "📥 Recepción de equipos":
                     """
             
             # ✅ Construir checkboxes de motivo
-            check_desvinculacion = "☑" if motivo_desvinculacion else "☐"
-            check_renovacion_recep = "☑" if motivo_renovacion_recep else "☐"
-            check_falla_recep = "☑" if motivo_falla_recep else "☐"
-            check_otro_recep = "☑" if motivo_otro_recep else "☐"
+            check_desvinculacion = "checked" if motivo_desvinculacion else ""
+            check_renovacion_recep = "checked" if motivo_renovacion_recep else ""
+            check_falla_recep = "checked" if motivo_falla_recep else ""
+            check_otro_recep = "checked" if motivo_otro_recep else ""
 
             # ✅ Construir checkboxes de estado
-            check_funcional = "☑" if estado_funcional else "☐"
-            check_con_fallas = "☑" if estado_fallas else "☐"
-            check_danado = "☑" if estado_danado else "☐"
+            check_funcional = "checked" if estado_funcional else ""
+            check_con_fallas = "checked" if estado_fallas else ""
+            check_danado = "checked" if estado_danado else ""
 
             # Construir datos para el HTML
             datos_pdf = {
@@ -487,10 +487,10 @@ elif seccion == "📤 Entrega de equipos":
                 accesorios_html = '<tr><td colspan="5" style="text-align: center; font-style: italic; color: #666;">N/A</td></tr>'
 
             # Construir checkboxes
-            check_vinculacion = "☑" if motivo_vinculacion else "☐"
-            check_renovacion = "☑" if motivo_renovacion else "☐"
-            check_falla = "☑" if motivo_falla else "☐"
-            check_otro = "☑" if motivo_otro else "☐"
+            check_vinculacion = "checked" if motivo_vinculacion else ""
+            check_renovacion = "checked" if motivo_renovacion else ""
+            check_falla = "checked" if motivo_falla else ""
+            check_otro = "checked" if motivo_otro else ""
 
             # Construir datos PDF
             datos_pdf = {
