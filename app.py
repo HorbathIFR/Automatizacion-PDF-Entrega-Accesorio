@@ -411,6 +411,15 @@ elif seccion == "📤 Entrega de equipos":
         nombre_quien_entrega = st.text_input("Nombre de quien ENTREGA", value="Jonathan David Santos Arrieta")
         cargo_quien_entrega = st.text_input("Cargo de quien ENTREGA", value="Coordinador de Infraestructura TI", key="cargo_entrega_entrega")
 
+    # 🏢 Empresa a la que pertenecen el equipo y los accesorios
+    empresa_propietaria = st.radio(
+        "🏢 El equipo y los accesorios pertenecen a:",
+        ["HORBATH TECHNOLOGIES SAS", "GASES DEL CARIBE"],
+        index=0,
+        horizontal=True,
+        key="empresa_propietaria_entrega",
+    )
+
     # 📅 Fecha de diligenciamiento (por defecto hoy, editable)
     fecha_diligenciamiento = st.date_input(
         "📅 Fecha de diligenciamiento",
@@ -518,6 +527,7 @@ elif seccion == "📤 Entrega de equipos":
             # Construir datos PDF
             datos_pdf = {
                 "fecha_actual": fecha_diligenciamiento.strftime("%d/%m/%Y"),
+                "empresa_propietaria": empresa_propietaria,
                 "accesorios_rows": accesorios_html,
                 "nombre_quien_recibe": nombre_quien_recibe,
                 "nombre_quien_entrega": nombre_quien_entrega,
