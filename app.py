@@ -1,12 +1,19 @@
 import streamlit as st
 import pandas as pd
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from weasyprint import HTML
 import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 st.caption("DEPLOY CHECK: 2026-03-03  (commit test)")
 # =================== FUNCIONES COMUNES ===================
+
+ZONA_HORARIA = ZoneInfo("America/Bogota")
+
+def hoy_colombia():
+    """Fecha de hoy en hora de Colombia (el servidor de Streamlit está en UTC)."""
+    return datetime.now(ZONA_HORARIA).date()
 
 def cargar_html(path):
     with open(path, "r", encoding="utf-8") as f:
@@ -150,6 +157,14 @@ if seccion == "📥 Recepción de equipos":
         nombre_quien_recibe = st.text_input("Nombre de quien RECIBE", value="Jonathan David Santos Arrieta")
         cargo_quien_recibe = st.text_input("Cargo de quien RECIBE", key="cargo_recibe_recepcion")
 
+    # 📅 Fecha de diligenciamiento (por defecto hoy, editable)
+    fecha_diligenciamiento = st.date_input(
+        "📅 Fecha de diligenciamiento",
+        value=hoy_colombia(),
+        format="DD/MM/YYYY",
+        key="fecha_recepcion",
+    )
+
     # GENERAR PDF
     if st.button("📥 Generar PDF de Recepción"):
         try:
@@ -258,7 +273,7 @@ if seccion == "📥 Recepción de equipos":
 
             # Construir datos para el HTML
             datos_pdf = {
-                "fecha_actual": datetime.now().strftime("%d/%m/%Y"),
+                "fecha_actual": fecha_diligenciamiento.strftime("%d/%m/%Y"),
                 "equipo_row": equipo_row,
                 "accesorios_rows": accesorios_html,
                 "nombre_quien_entrega": nombre_quien_entrega,
@@ -283,7 +298,7 @@ if seccion == "📥 Recepción de equipos":
             st.download_button(
                 label="⬇️ Descargar PDF",
                 data=pdf_bytes,
-                file_name=f"Acta_Recepcion_{datetime.now().strftime('%Y%m%d')}.pdf",
+                file_name=f"Acta_Recepcion_{fecha_diligenciamiento.strftime('%Y%m%d')}.pdf",
                 mime="application/pdf"
             )
 
@@ -396,6 +411,14 @@ elif seccion == "📤 Entrega de equipos":
         nombre_quien_entrega = st.text_input("Nombre de quien ENTREGA", value="Jonathan David Santos Arrieta")
         cargo_quien_entrega = st.text_input("Cargo de quien ENTREGA", value="Coordinador de Infraestructura TI", key="cargo_entrega_entrega")
 
+    # 📅 Fecha de diligenciamiento (por defecto hoy, editable)
+    fecha_diligenciamiento = st.date_input(
+        "📅 Fecha de diligenciamiento",
+        value=hoy_colombia(),
+        format="DD/MM/YYYY",
+        key="fecha_entrega",
+    )
+
     # GENERAR PDF
     if st.button("📤 Generar PDF de Entrega"):
         try:
@@ -494,7 +517,7 @@ elif seccion == "📤 Entrega de equipos":
 
             # Construir datos PDF
             datos_pdf = {
-                "fecha_actual": datetime.now().strftime("%d/%m/%Y"),
+                "fecha_actual": fecha_diligenciamiento.strftime("%d/%m/%Y"),
                 "accesorios_rows": accesorios_html,
                 "nombre_quien_recibe": nombre_quien_recibe,
                 "nombre_quien_entrega": nombre_quien_entrega,
@@ -527,7 +550,7 @@ elif seccion == "📤 Entrega de equipos":
             st.download_button(
                 label="⬇️ Descargar PDF",
                 data=pdf_bytes,
-                file_name=f"Acta_Entrega_{datetime.now().strftime('%Y%m%d')}.pdf",
+                file_name=f"Acta_Entrega_{fecha_diligenciamiento.strftime('%Y%m%d')}.pdf",
                 mime="application/pdf"
             )
 
